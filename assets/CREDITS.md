@@ -9,7 +9,8 @@
 - AI Mafia: https://app.notion.com/p/3d2cea20cae181909eb7cb4058ef9894
 - Lucky Derby: https://app.notion.com/p/3d2cea20cae18192b372e5f59610121f
 - Purification Night: https://app.notion.com/p/b97cea20cae182af8f0e01dc73af74ab
-- Purification Night GIF: the original animated title screen supplied from the project’s UI assets.
+- Purification Night title background: original main_scene.gif from the game's UI assets. This GIF contains the background only. The default gallery image uses its first frame.
+- Purification Night title UI: the game's original logo.png and the game-start, settings and exit frames decoded losslessly from button_1.aseprite. These assets are displayed together using their StartScene placement; the logo and menu remain visible over the animated background.
 - Additional activity photographs supplied by Yumin Kang: the inter-university PlayX4 visit (2 photos), LEVEL0 art exhibition and caricature drawing (3 photos), Daegu University admissions fair (2 photos), and regional game jam Discord announcement (1 photo).
 
 The additional photographs are resized, orientation-corrected JPEG copies of the supplied files; the originals are unchanged. Embedded location and camera metadata is omitted from the public copies. Event participation does not imply individual authorship of every artwork pictured.

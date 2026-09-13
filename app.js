@@ -1,5 +1,5 @@
 import * as THREE from './vendor/three.module.js';
-import { RoomController } from './rooms.js?v=b27565a3682e';
+import { RoomController } from './rooms.js?v=0408a135f615';
 const $=s=>document.querySelector(s);
 const world=$('#world'),dialog=$('#project-dialog');
 const rooms=new RoomController({onExit:()=>world.focus({preventScroll:true})});

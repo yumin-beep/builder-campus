@@ -215,11 +215,42 @@ export const whiteboardPhotos=[
     "label": "OUR PEOPLE"
   }
 ];
+// Original title UI placement from the game's StartScene.
+const nightTitleLayers=[
+  {
+    "src": "./assets/projects/purification-night-title-logo.png",
+    "x": 0.29332517,
+    "y": 0.07541778,
+    "w": 0.41334966,
+    "h": 0.4136955
+  },
+  {
+    "src": "./assets/projects/purification-night-menu-start.png",
+    "x": 0.39712186,
+    "y": 0.45046541,
+    "w": 0.20575628,
+    "h": 0.09906919
+  },
+  {
+    "src": "./assets/projects/purification-night-menu-settings.png",
+    "x": 0.39712186,
+    "y": 0.61376626,
+    "w": 0.20575628,
+    "h": 0.09906919
+  },
+  {
+    "src": "./assets/projects/purification-night-menu-exit.png",
+    "x": 0.39712186,
+    "y": 0.77706712,
+    "w": 0.20575628,
+    "h": 0.09906919
+  }
+];
 export const artworks=[
  {id:'job',no:'01',title:'Job Battle',subtitle:'IDEA → UNITY',image:'./assets/projects/job-battle-development.png',type:'Prototype in development',tools:'Unity · C# · Photon',description:'I defined the game rules and art direction, then iterated on implementation and debugging with Claude Code + Unity MCP. Inspecting the Animator on a character created at runtime helped us trace and fix recurring animation errors.',detail:'Verified in play mode: controller assignment, Idle playback and entry into Attack.',url:'https://github.com/yumin-beep/3djobbattle',link:'Explore the code',accent:0xd69577},
  {id:'mafia',no:'02',title:'AI Mafia',subtitle:'ONE HUMAN. FIVE AIs.',image:'./assets/projects/ai-mafia-title.png',slides:['./assets/projects/ai-mafia-title.png','./assets/projects/ai-mafia-day-talk.png','./assets/projects/ai-mafia-vote.png'],type:'Team project',tools:'Unity · C# · Ollama · Gemma',description:'One human and five local AI players talk, reason and vote. I developed the game rules, prompts, AI integration and UI. We used Claude during development; the in-game AI runs on Ollama + Gemma.',detail:'Hover to cycle through the actual title, discussion and voting screens.',url:'https://app.notion.com/p/3d2cea20cae181909eb7cb4058ef9894',link:'See how it was made',accent:0x8da2b9},
  {id:'derby',no:'03',title:'Lucky Derby',subtitle:'PLAY IN YOUR BROWSER',image:'./assets/projects/lucky-derby.jpg',type:'Solo project',tools:'JavaScript · Three.js',description:'A browser racing game with transformations, weather and cinematic camera work. Building with Claude, I refined the camera composition to keep the chasing horses in frame.',detail:'You can also find this game in the arcade.',url:'https://yumin-beep.github.io/lucky-derby/',link:'Play the game',accent:0xbab675},
- {id:'night',no:'04',title:'Purification Night',subtitle:'A NIGHT TO SURVIVE',image:'./assets/projects/purification-night-cover.png',animation:'./assets/projects/purification-night-title.gif',type:'Team project',tools:'Unity · C#',description:'For this 2D roguelite, I worked on boss patterns, cutscenes, an infinite map, editor testing tools and build checks.',detail:'Hover over the frame to see the original animated title screen.',url:'https://app.notion.com/p/b97cea20cae182af8f0e01dc73af74ab',link:'Explore the project',accent:0xb0a0bb}
+ {id:'night',no:'04',title:'Purification Night',subtitle:'A NIGHT TO SURVIVE',image:'./assets/projects/purification-night-title-still.png',imageAlt:'Purification Night title screen with the original game logo and menu buttons.',layers:nightTitleLayers,animation:'./assets/projects/purification-night-title.gif',type:'Team project',tools:'Unity · C#',description:'For this 2D roguelite, I worked on boss patterns, cutscenes, an infinite map, editor testing tools and build checks.',detail:'The game logo and menu stay visible. Hover to animate the title background.',url:'https://app.notion.com/p/b97cea20cae182af8f0e01dc73af74ab',link:'Explore the project',accent:0xb0a0bb}
 ];
 export const cabinets=[
  {id:'jam',title:'LEVEL0 GAME JAM',subtitle:'SIX TEAMS / SIX GAMES',image:'./assets/community/gaenojam-outdoor-exhibition.png',description:'Discover six browser games from our very first game jam.',button:'Explore the jam entries',url:'https://itch.io/jam/level0-firstjam-gaenojam',color:0xd28063,glow:0xf2a58a},
