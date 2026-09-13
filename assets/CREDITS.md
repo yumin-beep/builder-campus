@@ -20,3 +20,7 @@ The additional photographs are resized, orientation-corrected JPEG copies of the
 Project screenshots and event photographs are original materials from Yumin Kang’s portfolio. Text inside these source images remains in its original language. Captions and descriptions on the portfolio are in English.
 
 Three.js is distributed under the accompanying MIT license.
+
+- Job Battle motion previews: original Blender character animations (`char_baker_cat_run`, `attack`, `defend`, and `idle`) from the project's Art/Animations directory. These show character motion renders, not recorded gameplay.
+- Lucky Derby motion sequence: three actual screenshots from one race at https://yumin-beep.github.io/lucky-derby/ (start, time-stop skill, booster), captured September 14, 2026. Displayed as a screenshot loop, not a continuous gameplay recording.
+- Desktop Widget Designer Zelda demo: the original Notion project cover showing Bézier anchors/handles and X/Y 3D rotation. Zelda artwork is demonstration content within the editor, not artwork authored by Yumin Kang.

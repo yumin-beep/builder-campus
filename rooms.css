@@ -11,3 +11,9 @@
 @media(max-width:700px){#interior:is([data-room=community],[data-room=lab]) #room-object-list{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;padding:5px 2px 8px;scrollbar-width:thin}#interior:is([data-room=community],[data-room=lab]) #room-object-list button{flex-shrink:0}#interior:is([data-room=community],[data-room=lab]) #memory-view{bottom:130px;max-height:64svh}.memory-thumbnails img{height:50px}.memory-copy p{font-size:15px}}
 
 #interior[data-room=lab] #memory-view{bottom:130px}
+
+/* The same media player fills the frame and the selected artwork. */
+#memory-view .art-preview video,#animated-art .art-preview video{display:block;width:100%;height:100%;object-fit:contain;background:#171b28}
+#memory-view .art-preview [data-art-image],#animated-art .art-preview [data-art-image]{object-fit:contain}
+
+#animated-art .art-preview{background:#171b28}
