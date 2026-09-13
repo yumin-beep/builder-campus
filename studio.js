@@ -1,5 +1,6 @@
 import * as THREE from './vendor/three.module.js';
-import {studioWorks} from './studio-data.js?v=08b3b963c97a';
+import {studioWorks} from './studio-data.js?v=1e02eecdf638';
+import {favoriteGames} from './favorite-games.js?v=0c87dde84cf3';
 
 const COLORS=[0xc96b47,0x667f9c,0xb8955a,0x547d76,0x687bb1,0xb17f78];
 function roundBox(c,parent,w,h,d,color,x=0,y=0,z=0,r=.12){
@@ -9,23 +10,25 @@ function roundBox(c,parent,w,h,d,color,x=0,y=0,z=0,r=.12){
  const mesh=new THREE.Mesh(geo,c.material(color));mesh.position.set(x,y,z);mesh.castShadow=true;mesh.receiveShadow=true;parent.add(mesh);return mesh;
 }
 function rod(c,parent,a,b,r,color){const delta=b.clone().sub(a),mesh=new THREE.Mesh(new THREE.CylinderGeometry(r,r,delta.length(),12),c.material(color));mesh.position.copy(a).add(b).multiplyScalar(.5);mesh.quaternion.setFromUnitVectors(new THREE.Vector3(0,1,0),delta.normalize());mesh.castShadow=true;parent.add(mesh);return mesh;}
-function recordLabel(c,work,color){
- const canvas=document.createElement('canvas');canvas.width=canvas.height=512;const ctx=canvas.getContext('2d');ctx.fillStyle='#'+color.toString(16).padStart(6,'0');ctx.fillRect(0,0,512,512);
- ctx.fillStyle='#fff1d3';ctx.textAlign='center';ctx.font='600 24px sans-serif';ctx.fillText('YUMIN / PERSONAL PRESSING',256,118);
- ctx.font='700 37px sans-serif';const words=work.title.replace('Babsangmeori / ','').split(' ');let line='',y=207;for(const word of words){if(ctx.measureText(line+' '+word).width>390){ctx.fillText(line,256,y);y+=44;line=word;}else line+=(line?' ':'')+word;}ctx.fillText(line,256,y);
- ctx.font='500 23px sans-serif';ctx.fillText('SIDE A   •   '+work.no,256,374);ctx.beginPath();ctx.arc(256,285,8,0,Math.PI*2);ctx.fillStyle='#181b1a';ctx.fill();
- const texture=new THREE.CanvasTexture(canvas);texture.colorSpace=THREE.SRGBColorSpace;return texture;
-}
-function makeVinyl(c,work,color){
- const record=new THREE.Group();c.cylinder(record,1.38,1.38,.055,0x111819,0,0,0,96);
- for(const radius of[.6,.67,.75,.84,.95,1.05,1.17,1.28,1.34]){const groove=new THREE.Mesh(new THREE.TorusGeometry(radius,.007,4,96),new THREE.MeshStandardMaterial({color:0x34403b,roughness:.42,metalness:.18}));groove.rotation.x=Math.PI/2;groove.position.y=.031;record.add(groove);}
- const label=new THREE.Mesh(new THREE.CircleGeometry(.52,64),new THREE.MeshBasicMaterial({map:recordLabel(c,work,color),toneMapped:false}));label.rotation.x=-Math.PI/2;label.position.y=.032;record.add(label);
- c.cylinder(record,.043,.043,.064,0xb1afa0,0,.02,0);return record;
+function coverTexture(c,work,color){
+ const canvas=document.createElement('canvas');canvas.width=600;canvas.height=920;const ctx=canvas.getContext('2d'),texture=new THREE.CanvasTexture(canvas);texture.colorSpace=THREE.SRGBColorSpace;
+ const poster=new Image();
+ const draw=()=>{
+  ctx.fillStyle='#'+color.toString(16);ctx.fillRect(0,0,600,920);ctx.fillStyle='#192c2b';ctx.fillRect(0,0,600,70);
+  ctx.fillStyle='#e7edb8';ctx.font='700 24px sans-serif';ctx.fillText('YUMIN / PROJECT ARCHIVES',30,44);
+  ctx.fillStyle='#e9dfc8';ctx.fillRect(25,100,550,480);
+  if(poster.naturalWidth){const scale=Math.min(530/poster.naturalWidth,445/poster.naturalHeight);ctx.drawImage(poster,300-poster.naturalWidth*scale/2,340-poster.naturalHeight*scale/2,poster.naturalWidth*scale,poster.naturalHeight*scale);}
+  ctx.fillStyle='#f4e8ce';ctx.font='700 47px sans-serif';let line='',y=650;
+  for(const word of work.title.replace('Babsangmeori / ','').replace(' · First Cohort','').split(' ')){if(ctx.measureText(line+' '+word).width>525){ctx.fillText(line,32,y);y+=56;line=word;}else line+=(line?' ':'')+word;}ctx.fillText(line,32,y);
+  ctx.fillStyle='#192c2b';ctx.fillRect(25,814,550,78);ctx.fillStyle='#e7edb8';ctx.font='700 24px monospace';ctx.fillText('VHS / FILE '+work.no,44,862);
+  for(let i=0;i<24;i++)ctx.fillRect(397+i*6,832,i%3+1,38);texture.needsUpdate=true;
+ };
+ poster.onload=draw;poster.src=work.image;draw();return texture;
 }
 
 export function buildStudio(c,room){
- const s=room.scene;room.records=[];room.recordState='idle';room.recordPause=false;
- // A cutaway home: a living room, a record wall, and a bedroom behind a low partition.
+ const s=room.scene;room.tapes=[];room.tapeState='idle';room.archivePosition=new THREE.Vector3(-.7,3.45,-3.4);
+ // A cutaway home: a living room, a video archive, and a bedroom behind a low partition.
  c.box(s,24,.65,18,0x343c3d,0,-.4,0);c.box(s,24,.14,18,0x82684c,0,0,0);
  for(let x=-11.5;x<12;x++){c.box(s,.035,.014,17.95,0x594938,x,.083,0);for(let z=-8;z<9;z+=3)c.box(s,.97,.015,.025,0x67513b,x,.085,z+(Math.round(x)%2?1.5:0));}
  c.box(s,24,7,.28,0x2c494c,0,3.42,-9);c.box(s,.28,7,18,0x344b4e,-12,3.42,0);
@@ -58,38 +61,37 @@ export function buildStudio(c,room){
  c.cylinder(s,.23,.22,.34,0xd8c7a2,-6.7,1.17,.36);const handle=new THREE.Mesh(new THREE.TorusGeometry(.14,.035,8,16),c.material(0xd8c7a2));handle.position.set(-6.45,1.2,.36);s.add(handle);
  c.box(s,.9,.1,.64,0xc0794f,-7.7,1.05,.1);c.label(s,'AFTER HOURS',.78,.4,'#c0794f','#f3d4aa',-7.7,1.108,.1,90).rotation.x=-Math.PI/2;
  roundBox(c,s,1.3,.62,1.25,0x94785a,-4.15,.46,2.1,.21);
- // Vintage TV cabinet and stereo. The TV holds the current project screen.
+ // A separate TV and docked handheld console for favorite games.
  roundBox(c,s,6.3,1.27,1.7,0x906540,-7.35,.79,-6.85,.1);
  for(const x of[-9.5,-7.35,-5.2]){c.box(s,1.96,.9,.08,0x483e34,x,.92,-5.965);c.box(s,.5,.055,.05,0xbda375,x,1.18,-5.91);}
- const tv=new THREE.Group();tv.position.set(-7.2,2.84,-6.66);s.add(tv);roundBox(c,tv,4.85,2.94,1.05,0xb57543,0,0,0,.16);roundBox(c,tv,4.14,2.54,.09,0x252f32,-.22,0,.54,.16);
- room.tvScreen=c.label(tv,'PICK A RECORD',3.9,2.22,'#152f35','#d6caaa',-.22,0,.605,74);
+ for(const x of[-8.65,-5.75])roundBox(c,s,.8,.42,.83,0x483e34,x,1.62,-6.66,.05);
+ const tv=new THREE.Group();tv.position.set(-7.2,3.29,-6.66);s.add(tv);roundBox(c,tv,4.85,2.94,1.05,0xb57543,0,0,0,.16);roundBox(c,tv,4.14,2.54,.09,0x252f32,-.22,0,.54,.16);
+ room.tvScreen=new THREE.Mesh(new THREE.PlaneGeometry(3.9,2.22),new THREE.MeshBasicMaterial({map:c.texture(favoriteGames[0].image),toneMapped:false}));room.tvScreen.position.set(-.22,0,.605);tv.add(room.tvScreen);
  for(const y of[-.45,.52]){const dial=c.cylinder(tv,.16,.16,.13,0x363a34,2.14,y,.63);dial.rotation.x=Math.PI/2;}
  for(let i=0;i<5;i++)c.box(tv,.33,.035,.025,0x513e2f,2.14,-1.07+i*.1,.55);
  rod(c,tv,new THREE.Vector3(-.5,1.45,0),new THREE.Vector3(-1.6,2.5,0),.023,0x999783);rod(c,tv,new THREE.Vector3(.4,1.45,0),new THREE.Vector3(1.4,2.16,0),.023,0x999783);
- c.interact(room,tv,'home-tv','TV · Play a record');room.objects.get('home-tv').workId='searchprice';
+ c.interact(room,tv,'home-tv','TV · My favorite games');
+ const console=new THREE.Group();console.position.set(-9.15,1.71,-5.75);s.add(console);roundBox(c,console,1.42,.75,.18,0x202b2b,0,0,0,.07);roundBox(c,console,.25,.77,.22,0x66bfc4,-.75,0,0,.08);roundBox(c,console,.25,.77,.22,0xd76f59,.75,0,0,.08);roundBox(c,console,1.24,.47,.36,0x303d3c,0,-.21,.1,.05);c.label(console,'SWITCH',.87,.19,'#303d3c','#e7dcc3',0,-.15,.294,100);c.interact(room,console,'home-console','Console · My favorite games');
+ const cable=new THREE.CatmullRomCurve3([new THREE.Vector3(-9.1,1.45,-6.0),new THREE.Vector3(-8.6,1.5,-6.6),new THREE.Vector3(-7.8,1.8,-6.65)]);s.add(new THREE.Mesh(new THREE.TubeGeometry(cable,20,.028,6,false),c.material(0x202c2c)));
+ const remote=roundBox(c,s,.23,.06,.66,0x263f3b,-6.03,1.025,.25,.03);for(let i=0;i<3;i++)c.cylinder(s,.035,.035,.01,0xd5bc85,-6.03,1.065,.08+i*.14);c.interact(room,remote,'home-remote','Remote · My favorite games');
  for(const x of[-10.4,-4.25]){roundBox(c,s,1.05,1.6,.83,0x263739,x,2.06,-6.5,.07);for(const y of[1.68,2.29]){const speaker=c.cylinder(s,.31,.31,.08,0x82968e,x,y,-6.03);speaker.rotation.x=Math.PI/2;const cone=c.cylinder(s,.17,.17,.085,0x243337,x,y,-5.98);cone.rotation.x=Math.PI/2;}}
- // Shelves filled with books, record spines and six real project sleeves.
+ // A video-store bookcase: thick portrait cases, reel windows and labelled spines.
  const shelfX=-.1;for(const x of[-3.76,3.56])c.box(s,.2,6.2,1.35,0x6b4f39,x,3.1,-8.1);
  for(const y of[.34,2.95,5.56,6.2])c.box(s,7.5,.17,1.48,0x9c7852,shelfX,y,-8.1);c.box(s,7.38,5.86,.1,0x3d3b32,shelfX,3.13,-8.78);
- c.label(s,'THE RECORD COLLECTION',6.45,.38,'#263f42','#ead9b9',-.1,6.62,-8.8,78);
+ c.label(s,'THE VIDEO ARCHIVE',6.45,.38,'#263f42','#ead9b9',-.1,6.62,-8.8,78);
  studioWorks.forEach((work,i)=>{
-  const x=-2.56+(i%3)*2.45,y=i<3?4.27:1.66;const jacket=new THREE.Group();jacket.position.set(x,y,-7.34);s.add(jacket);
-  roundBox(c,jacket,2.02,2.22,.13,COLORS[i],0,0,0,.03);c.box(jacket,1.82,1.79,.015,0xe7dac0,0,.035,.08);c.photo(jacket,work.image,1.7,1.15,0,.14,.093);
-  c.label(jacket,work.title.replace('Babsangmeori / ','').replace(' · First Cohort',''),1.79,.39,'#e7dac0','#2b3e3c',0,-.64,.104,90);
-  c.label(jacket,'Y / '+work.no+'     SIDE A',1.78,.18,'#'+COLORS[i].toString(16),'#fff1d3',0,.97,.081,77);
-  c.interact(room,jacket,work.id,'Play '+work.title);const data={id:work.id,jacket,home:jacket.position.clone(),homeQ:jacket.quaternion.clone(),color:COLORS[i],work};room.records.push(data);Object.assign(room.objects.get(work.id),{workId:work.id,record:data});
-  // Back row spines stay in the cubby when the front sleeve is taken out.
-  for(let j=0;j<5;j++){const spine=c.box(s,.12,1.83,.88,[0x765447,0x42636b,0xa5946c,0x995c4d,0xc8b590][j],x-.67+j*.29,y,-8.02);spine.rotation.z=(j-2)*.025;}
+  const x=-2.56+(i%3)*2.45,y=i<3?4.27:1.66,tape=new THREE.Group();tape.position.set(x,y,-7.3);s.add(tape);
+  roundBox(c,tape,1.55,2.35,.41,0x182a2b,0,0,0,.05);c.box(tape,1.45,2.23,.43,COLORS[i],.025,0,0);
+  const cover=new THREE.Mesh(new THREE.PlaneGeometry(1.4,2.15),new THREE.MeshBasicMaterial({map:coverTexture(c,work,COLORS[i]),toneMapped:false}));cover.position.set(.04,0,.226);tape.add(cover);
+  const spine=c.label(tape,'FILE '+work.no+' / '+work.title,2.15,.31,'#192c2b','#e5d8bc',-.76,0,0,47);spine.rotation.y=-Math.PI/2;spine.rotation.z=Math.PI/2;
+  // The cassette is visible at the opening and on the back of its case.
+  c.box(tape,1.24,2.09,.04,0x111f22,0,0,-.241);for(const y of[-.54,.54]){const reel=c.cylinder(tape,.3,.3,.04,0x9faaa2,0,y,-.277,28);reel.rotation.x=Math.PI/2;const hub=c.cylinder(tape,.13,.13,.045,0x223536,0,y,-.3,14);hub.rotation.x=Math.PI/2;}
+  c.interact(room,tape,work.id,'Open file · '+work.title);const data={id:work.id,group:tape,home:tape.position.clone(),homeQ:tape.quaternion.clone(),work};room.tapes.push(data);Object.assign(room.objects.get(work.id),{workId:work.id,tape:data});
+  for(let j=0;j<4;j++){const spine=c.box(s,.15,2.1,.66,[0x765447,0x42636b,0xa5946c,0xc8b590][j],x+.93+j*.11,y,-8.0);spine.rotation.z=-.06;}
  });
- // A low record console and a complete turntable, with grooves, spindle and tonearm.
- const deck=new THREE.Group();deck.position.set(-.48,0,-3.05);s.add(deck);room.deck=deck;
- roundBox(c,deck,5.45,1.22,2.8,0x6b513b,0,.74,0,.1);for(const x of[-2.48,2.48])c.box(deck,.13,.34,2.35,0x253637,x,.18,0);
- for(const x of[-1.62,0,1.62]){c.box(deck,1.43,.78,.07,0x363b32,x,.78,1.44);for(let i=0;i<5;i++)c.box(deck,.17,.62,.09,[0xc29a65,0x886b57,0x456c6a,0xa56645,0xd8c9a4][i],x-.53+i*.26,.74,1.5);}
- roundBox(c,deck,4.75,.24,2.62,0xb18e5d,0,1.54,0,.12);c.cylinder(deck,1.47,1.47,.1,0x5c6660,-.48,1.72,0,96);c.cylinder(deck,1.4,1.4,.06,0x171d1c,-.48,1.8,0,96);c.cylinder(deck,.045,.045,.18,0xc9c5b3,-.48,1.91,0);
- room.platter=new THREE.Vector3(-.96,1.875,-3.05);
- c.cylinder(deck,.14,.14,.12,0x313d3b,1.74,1.8,-.89);const arm=new THREE.Group();arm.position.set(1.74,1.96,-.89);deck.add(arm);rod(c,arm,new THREE.Vector3(0,0,0),new THREE.Vector3(-.13,0,1.54),.036,0xbbb5a0);c.box(arm,.2,.09,.28,0x303e3d,-.13,-.04,1.58);room.tonearm=arm;
- const speed=c.cylinder(deck,.13,.13,.08,0x303c37,1.95,1.73,.88);c.label(deck,'33⅓',.45,.22,'#b18e5d','#283d3b',1.41,1.671,1.04,139).rotation.x=-Math.PI/2;
- c.interact(room,deck,'home-player','Turntable · Choose a record');room.objects.get('home-player').workId='searchprice';
+ // A clear route in front of the archive, with a low storage bench.
+ roundBox(c,s,4.8,.6,1.2,0x6d796c,0,.65,.8,.1);for(const x of[-2.0,2.0])c.box(s,.14,.39,.84,0x343f35,x,.23,.8);
+ c.box(s,.7,.09,.8,0xb18357,-1.4,1,.72);c.box(s,.67,.07,.78,0xddd2b5,-1.34,1.08,.72);
  // One personal desk, a lamp, pencil pot, notebook and bedroom storage.
  c.table(room,8,2.47,5.3,2.35);c.chair(room,8,4.45,Math.PI);roundBox(c,s,2.18,1.37,.15,0x354b4c,7.87,2.6,1.92,.08);c.photo(s,studioWorks.find(w=>w.id==='widget').image,1.99,1.13,7.87,2.6,2.01);c.box(s,1.4,.06,.58,0x42605c,7.87,1.75,2.3);
  const deskObject=c.box(s,.98,.08,.76,0xc89552,9.9,1.76,2.75);c.interact(room,deskObject,'home-desk','Notebook · Desktop Widget Designer');room.objects.get('home-desk').workId='widget';
@@ -101,28 +103,21 @@ export function buildStudio(c,room){
  const pendant=new THREE.PointLight(0xffce8c,18,12,2);pendant.position.set(-6.5,4.65,.6);s.add(pendant);
  for(const x of[5.65,9.96]){c.box(s,1.5,.12,.8,0x8b6b45,x,5.72,-8.35);for(let i=0;i<5;i++)c.box(s,.16,.63,.48,[0x7a4e3e,0xaba077,0x426a6b,0xa46441,0xd4b57d][i],x-.48+i*.23,6.08,-8.36);}
  c.plant(room,-10.73,5.2,1.05);c.plant(room,10.76,6.7,.85);
- room.makeVinyl=(work,color)=>makeVinyl(c,work,color);
+
 }
 
-export function stopRecord(room){
- if(!room?.records)return;for(const record of room.records){record.jacket.position.copy(record.home);record.jacket.quaternion.copy(record.homeQ);record.jacket.scale.setScalar(1);}
- if(room.vinyl){room.scene.remove(room.vinyl);room.vinyl.traverse(o=>{if(o.isMesh){o.geometry.dispose();if(o.material.map)o.material.map.dispose();o.material.dispose();}});room.vinyl=null;}
- room.recordState='idle';room.recordPause=false;room.activeRecord=null;if(room.tonearm)room.tonearm.rotation.set(0,0,0);
+export function returnTape(room){
+ if(!room?.tapes)return;for(const tape of room.tapes){tape.group.position.copy(tape.home);tape.group.quaternion.copy(tape.homeQ);tape.group.scale.setScalar(1);}room.activeTape=null;room.tapeState='idle';
 }
-export function pickRecord(room,id,reduced){
- stopRecord(room);const record=room.records.find(r=>r.id===id);room.activeRecord=record;room.recordState='lifting';room.recordStarted=performance.now();room.recordReduced=reduced;
- room.vinyl=room.makeVinyl(record.work,record.color);room.vinyl.position.copy(record.home);room.vinyl.rotation.x=Math.PI/2;room.vinyl.visible=false;room.scene.add(room.vinyl);
+export function pickTape(room,id,reduced){
+ returnTape(room);room.activeTape=room.tapes.find(t=>t.id===id);room.tapeState='pulling';room.tapeStarted=performance.now();room.tapeReduced=reduced;
 }
 export function tickStudio(c,room,now,dt,ease){
- for(const rec of room.records){if(rec===room.activeRecord)continue;const hover=rec.id===c.hovered;rec.jacket.position.lerp(rec.home.clone().add(new THREE.Vector3(0,hover?.09:0,hover?.34:0)),ease);rec.jacket.rotation.y=THREE.MathUtils.lerp(rec.jacket.rotation.y,hover?-.12:0,ease);}
- if(!room.activeRecord)return;
- const rec=room.activeRecord,t=room.recordReduced?1:Math.min((now-room.recordStarted)/1900,1),smooth=t*t*(3-2*t);
- const sleeveEnd=new THREE.Vector3(1.75,3.07,-3.15);
- rec.jacket.position.lerpVectors(rec.home,sleeveEnd,smooth);rec.jacket.position.y+=Math.sin(Math.PI*t)*1.35;rec.jacket.rotation.y=-.18*smooth;rec.jacket.scale.setScalar(1+.15*smooth);
- const move=THREE.MathUtils.clamp((t-.16)/.84,0,1),k=move*move*(3-2*move);room.vinyl.visible=t>.16||room.recordReduced;
- room.vinyl.position.lerpVectors(rec.home.clone().add(new THREE.Vector3(.9,.2,.48)),room.platter,k);room.vinyl.position.y+=Math.sin(Math.PI*move)*1.6;room.vinyl.rotation.x=Math.PI/2*(1-k);
- room.tonearm.rotation.y=THREE.MathUtils.lerp(0,-.66,THREE.MathUtils.clamp((t-.8)/.2,0,1));
- if(t===1){room.recordState='playing';if(!c.reduced&&!room.recordPause)room.vinyl.rotation.y+=dt*1.35;}
+ for(const tape of room.tapes){if(tape===room.activeTape)continue;const hover=tape.id===c.hovered&&!c.reduced;tape.group.position.lerp(tape.home.clone().add(new THREE.Vector3(0,hover?.06:0,hover?.45:0)),ease);tape.group.rotation.y=THREE.MathUtils.lerp(tape.group.rotation.y,hover?-.18:0,ease);}
+ if(!room.activeTape)return;
+ const tape=room.activeTape,t=room.tapeReduced?1:Math.min((now-room.tapeStarted)/950,1),smooth=t*t*(3-2*t);
+ tape.group.position.lerpVectors(tape.home,room.archivePosition,smooth);tape.group.position.y+=Math.sin(Math.PI*t)*.32;tape.group.rotation.set(.025*smooth,-.28*smooth,-.06*smooth);tape.group.scale.setScalar(1+.48*smooth);
+ if(t===1)room.tapeState='open';
 }
 
 export function architectureHTML(){return `<div class="studio-flow"><span class="flow-eyebrow">NCP / SIMPLIFIED ARCHITECTURE</span><h4>From request to record.</h4><div class="flow-row"><span><b>WEB</b>Nginx</span><i>→</i><span><b>WAS</b>Load balancer<br>Node.js / Express</span><i>→</i><span><b>DATA</b>MySQL</span></div><div class="flow-services"><span>KMS<br><b>Post encryption</b></span><span>Object Storage → Global Edge<br><b>Image delivery</b></span></div><p>GitHub Actions · Deployment</p></div>`;}

@@ -4,9 +4,11 @@ An interactive portfolio featuring a walkable campus, a community clubhouse, a g
 
 The LEVEL0 clubhouse has five lockers and six pinned photographs covering eight activities, including PlayX4, an art exhibition, an admissions fair, and a Discord game jam kickoff. Open an activity to browse its photo album.
 
-Builder’s Studio is a lived-in home with a sofa facing a vintage TV, a bed, a personal desk and a project record collection. Pick one of six LP sleeves from the bookcase: the sleeve comes forward, the record lands on a turntable, and the camera approaches while the project story opens. Pause, switch records or return them to the shelf. SearchPrice, StayFinder, On-Geul and the NCP 3-Tier PoC sit alongside the Modoo Startup program record and the shared Desktop Widget Designer case. NCP has a second side explaining its architecture. Reduced-motion mode opens the same content without the pickup or spinning animation.
+Builder’s Studio is a lived-in home with a sofa facing a vintage TV, a bed, a personal desk and a project video archive. Pick one of six VHS cases: the case comes forward and the camera approaches while a project file opens. Browse the briefing, contributions and original animated project media; switch files or return the case to its shelf. SearchPrice, StayFinder, On-Geul and the NCP 3-Tier PoC sit alongside the Modoo Startup program and the shared Desktop Widget Designer case. NCP has an Architecture tab. Reduced-motion mode opens the same content without the pickup animation.
 
-The campus island is approximately 50% larger, giving the house its own front garden and a connected walking route. Potted plants use separate soil, stems and leaves. The home’s arrangement takes inspiration from user-supplied Random Play references; the scene uses original Three.js geometry and the portfolio’s existing project screenshots.
+The TV, docked Switch prop and remote open a separate favorite-game collection. Select Zenless Zone Zero, Zelda: Breath of the Wild, Zelda: Tears of the Kingdom, Skul, Slay the Spire or Sekiro to change the TV artwork and visit its official game page. Arrow keys also cycle through the collection. This is a favorites viewer; the games themselves are not embedded.
+
+The campus island is approximately 50% larger, giving the house its own front garden and a connected walking route. The walker starts on a visible path and remains identifiable through buildings using a silhouette; overlapping nameplates move aside. Potted plants use separate soil, stems and leaves. The home’s arrangement takes inspiration from user-supplied Random Play references; the scene uses original Three.js geometry and the portfolio’s existing project screenshots.
 
 **Explore: https://yumin-beep.github.io/builder-campus/**
 

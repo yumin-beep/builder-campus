@@ -37,3 +37,13 @@ Downloaded from Yumin’s own Notion portfolio records. Original Korean interfac
 - `studio/ncp-board.png` — original training bulletin board; https://app.notion.com/p/eedcea20cae182c6a77581abc2ad4b9d . CloudSquare Jan–Feb 2026 individual practicum PoC.
 - The simplified architecture view is HTML/CSS based on https://github.com/yumin-beep/ncp-3tier-architecture#readme . Web/Nginx → WAS load balancer/Node.js/Express → MySQL; KMS, Object Storage, Global Edge, GitHub Actions. It is a portfolio explanation, not a cloud-console screenshot.
 - Desktop Widget Designer reuses the exact existing gallery work object and original Zelda/Bézier editor screenshots. No separately maintained copy.
+
+## Favorite games / TV collection
+
+Official game artwork is displayed as part of Yumin’s personal favorites, separate from portfolio work. All artwork belongs to its respective rights holders.
+- Zenless Zone Zero: [PlayStation official game page](https://www.playstation.com/en-us/games/zenless-zone-zero/), [original image](https://gmedia.playstation.com/is/image/SIEPDC/zenless-zone-zero-pdp-hero-desktop-05-en-16jun26?$1200px$).
+- The Legend of Zelda: Breath of the Wild: [Nintendo official store](https://www.nintendo.com/us/store/products/the-legend-of-zelda-breath-of-the-wild-switch/), [original image](https://assets.nintendo.com/image/upload/c_fill,w_960/q_auto:best/f_auto/dpr_1.0/store/software/switch/70010000000025/7137262b5a64d921e193653f8aa0b722925abc5680380ca0e18a5cfd91697f58).
+- The Legend of Zelda: Tears of the Kingdom: [Nintendo official store](https://www.nintendo.com/us/store/products/the-legend-of-zelda-tears-of-the-kingdom-switch/), [original image](https://assets.nintendo.com/image/upload/c_fill,w_960/q_auto:best/f_auto/dpr_1.0/store/software/switch/70010000063714/fb30eab428df3fc993b41c76e20f72e4d76d49734d17d31996b5ab61c414b117).
+- Skul: The Hero Slayer: [Publisher's Steam store page](https://store.steampowered.com/app/1147560/Skul_The_Hero_Slayer/), [original image](https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1147560/capsule_616x353.jpg?t=1774420210).
+- Slay the Spire: [Publisher's Steam store page](https://store.steampowered.com/app/646570/Slay_the_Spire/), [original image](https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/646570/capsule_616x353.jpg?t=1774015376).
+- Sekiro: Shadows Die Twice: [Publisher's Steam store page](https://store.steampowered.com/app/814380/Sekiro_Shadows_Die_Twice__GOTY_Edition/), [original image](https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/814380/capsule_616x353.jpg?t=1762888662).
