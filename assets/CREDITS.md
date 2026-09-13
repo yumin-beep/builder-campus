@@ -2,6 +2,7 @@
 
 - LEVEL0 recruitment poster: https://app.notion.com/p/086cea20cae18291a3de016079ace80c
 - First LEVEL0 game jam exhibition and voting: https://app.notion.com/p/3d2cea20cae18121adffc922d5a039b2
+- GAENOJAM on-site exhibition photo card: original image supplied by Yumin Kang; its design, Korean text, and existing face obscuring are preserved.
 - Daegu–Gyeongbuk regional game jam: https://app.notion.com/p/de8cea20cae1834ab16c818368f5fd15
 - Regional game jam participant and teamwork photos: Juyoung Park (@juyounginpark), https://www.instagram.com/juyounginpark/p/Db0hXoAILwp/
 - Job Battle: https://app.notion.com/p/3d2cea20cae18105862feebd1f39055c

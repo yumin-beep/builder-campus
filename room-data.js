@@ -36,6 +36,11 @@ export const memories=[
         "src": "./assets/community/gaenojam-outdoor-exhibition.png",
         "alt": "The first game jam exhibition outdoors.",
         "caption": "The first game jam exhibition outdoors."
+      },
+      {
+        "src": "./assets/community/gaenojam-onsite-exhibition-card.png",
+        "alt": "Visitors trying games on laptops at the first LEVEL0 game jam exhibition.",
+        "caption": "Visitors trying student-made games at the first LEVEL0 game jam exhibition."
       }
     ]
   },
