@@ -1,0 +1,47 @@
+.label-studio .zone-no{background:#b1cad9;color:#233e51}
+#interior[data-room=studio]{color:#293f53}
+#interior[data-room=studio] .room-shade{background:linear-gradient(180deg,#e4e8dfed,transparent 23%),linear-gradient(0deg,#d4dbd0ee,transparent 23%)}
+#interior[data-room=studio] #room-object-list{left:50%;width:auto;max-width:none;flex-wrap:nowrap}
+#interior[data-room=studio] #room-object-list button.active{background:#2b455a}
+#interior[data-room=studio] #memory-view{transform:none;background:#f9f6ed;border-color:#f9f6ed;bottom:100px;top:116px;box-shadow:0 12px 55px #243b492e}
+#interior[data-room=studio][data-focused=true] #room-hint,#interior[data-room=studio][data-focused=true] .room-camera{display:none}
+#studio-screen{position:absolute;left:0;top:0;transform-origin:0 0;z-index:2;pointer-events:none;overflow:hidden;background:#18242e}
+#studio-screen[hidden]{display:none}
+#studio-screen .art-preview{position:relative;width:100%;height:100%;overflow:hidden}
+#studio-screen .art-preview img,#studio-screen .art-preview video{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:contain}
+#studio-screen[data-project=ncp] [data-art-image]{clip-path:inset(8.2% 0 0);transform:translateY(-1.3%)}
+.studio-copy{padding:12px 15px 22px}
+.studio-copy h3{font-size:25px;line-height:1.2;color:#293f53;margin:13px 0}
+.studio-copy .studio-meta{font-size:12px;line-height:1.6;color:#65767d;margin:0 0 12px}
+.studio-status{display:inline-block;padding:7px 9px;border:1px solid #c2ceb9;border-radius:4px;background:#e8eddf;font-size:11px;line-height:1.55;color:#43593e}
+.studio-work-tabs{display:flex;flex-wrap:wrap;gap:6px;margin:20px 0 8px}
+.studio-work-tabs button,.studio-view-tabs button{font:inherit;font-size:11px;text-align:left;border:1px solid #82949a55;border-radius:5px;padding:8px 9px;color:#39515e;background:transparent;backdrop-filter:none}
+.studio-work-tabs button[aria-pressed=true],.studio-view-tabs button[aria-pressed=true]{background:#2b455a;color:#f9f1de}
+.studio-view-tabs{display:flex;gap:6px;margin:18px 0 8px}
+.studio-story section{border-top:1px solid #8d9c953d;padding-top:14px;margin-top:16px}
+.studio-story h4,.studio-story h3{font-size:12px;letter-spacing:.05em;text-transform:uppercase;margin:0;color:#395365}
+.studio-story p,.studio-copy .studio-story p{font-size:14px;line-height:1.75;margin:8px 0 0;color:#526568}
+.studio-copy .studio-caption{font-size:11px;line-height:1.65;color:#7a8580;margin:20px 0 8px}
+.studio-links{display:flex;flex-direction:column;align-items:stretch;gap:8px;margin-top:20px}
+.studio-links a{padding:11px 13px;background:#2b455a;color:#f8f4e7;font-size:13px;border-radius:5px;line-height:1.5}
+.studio-links a:hover{background:#416476}
+.studio-flow{width:100%;height:100%;box-sizing:border-box;background:#1c3446;color:#edf2e6;padding:36px 40px;font-family:Arial,sans-serif}
+.flow-eyebrow{font-size:15px;letter-spacing:3px;color:#b5c8c6}
+.studio-flow h4{font-size:38px;letter-spacing:-1px;margin:16px 0 30px;font-weight:500}
+.flow-row{display:flex;align-items:stretch;gap:18px}
+.flow-row>span{flex:1;border:1px solid #6b8693;padding:22px 15px;font-size:20px;line-height:1.4;background:#294758;border-radius:7px}
+.flow-row b{display:block;color:#e2c588;font-size:15px;letter-spacing:2px;margin-bottom:9px}
+.flow-row i{align-self:center;font-size:30px;color:#d6b975;font-style:normal}
+.flow-services{display:flex;gap:15px;margin-top:24px;font-size:18px;color:#a8c2c4}
+.flow-services>span{flex:1;border-left:2px solid #caad72;padding-left:15px;line-height:1.5}
+.flow-services b{font-weight:400;font-size:15px;color:#819fa9}
+.studio-flow p{border-top:1px solid #57727e;margin-top:25px;padding-top:20px;font-size:17px;color:#bfcfbd}
+@media(max-width:700px){
+ #interior[data-room=studio] #room-object-list{left:4%;right:4%;bottom:17px;transform:none;gap:5px;justify-content:center}
+ #interior[data-room=studio] #room-object-list button{padding:10px 12px;font-size:11px}
+ #interior[data-room=studio]:not([data-focused=true]) #room-object-list{bottom:65px}
+ #interior[data-room=studio] #memory-view{top:43%;bottom:72px;max-height:none;left:4%;right:4%;width:auto;border-width:5px}
+ #interior[data-room=studio][data-focused=true] .room-topbar>div{display:none}
+ .studio-copy{padding:9px 13px 20px}.studio-copy h3{font-size:23px}.studio-copy .studio-story p{font-size:14px}
+ .studio-work-tabs{margin-top:16px}.studio-work-tabs button{padding:9px}
+}

@@ -24,3 +24,16 @@ Three.js is distributed under the accompanying MIT license.
 - Job Battle motion previews: original Blender character animations (`char_baker_cat_run`, `attack`, `defend`, and `idle`) from the project's Art/Animations directory. These show character motion renders, not recorded gameplay.
 - Lucky Derby motion sequence: three actual screenshots from one race at https://yumin-beep.github.io/lucky-derby/ (start, time-stop skill, booster), captured September 14, 2026. Displayed as a screenshot loop, not a continuous gameplay recording.
 - Desktop Widget Designer Zelda demo: the original Notion project cover showing Bézier anchors/handles and X/Y 3D rotation. Zelda artwork is demonstration content within the editor, not artwork authored by Yumin Kang.
+
+
+## Builder’s Studio originals (September 2026)
+
+Downloaded from Yumin’s own Notion portfolio records. Original Korean interface text remains in the screenshots; all surrounding portfolio copy is English. Original files are copied without image alteration. The NCP monitor masks browser chrome with CSS only.
+
+- `studio/searchprice-prototype.png` — original five-food prototype screenshot; https://app.notion.com/p/3d2cea20cae181948da8fe7ba33ceb27 . The displayed confidence is one example, not an overall accuracy metric.
+- `studio/modoo-startup-banner.png` — original Modoo Startup program banner; https://app.notion.com/p/3d2cea20cae181a390d1d1e2cd51d3f6 . Selection refers to Round 1; final submission completed.
+- `studio/stayfinder.jpg` — original accommodation search interface; https://app.notion.com/p/3d2cea20cae181d1ab6bf1ced5d0c562 . Personal tool, sole developer.
+- `studio/on-geul.jpg` — original voice upload interface; https://app.notion.com/p/3d2cea20cae1819eaeccddb8da37f3d0 . Team lead/backend; Google AI Agent Challenge submission.
+- `studio/ncp-board.png` — original training bulletin board; https://app.notion.com/p/eedcea20cae182c6a77581abc2ad4b9d . CloudSquare Jan–Feb 2026 individual practicum PoC.
+- The simplified architecture view is HTML/CSS based on https://github.com/yumin-beep/ncp-3tier-architecture#readme . Web/Nginx → WAS load balancer/Node.js/Express → MySQL; KMS, Object Storage, Global Edge, GitHub Actions. It is a portfolio explanation, not a cloud-console screenshot.
+- Desktop Widget Designer reuses the exact existing gallery work object and original Zelda/Bézier editor screenshots. No separately maintained copy.
