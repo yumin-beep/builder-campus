@@ -1,5 +1,5 @@
 import * as THREE from './vendor/three.module.js';
-import {memories,whiteboardPhotos,artworks,cabinets} from './room-data.js';
+import {memories,whiteboardPhotos,artworks,cabinets} from './room-data.js?v=38b00f7e55b9';
 const $=s=>document.querySelector(s);
 const INFO={community:{name:'LEVEL0 Clubhouse',en:'THE CLUBHOUSE',hint:'Open a locker or click a photo on the whiteboard.',bg:0xd8dfc9},lab:{name:'Claude × Unity Gallery',en:'THE MAKING GALLERY',hint:'Hover over a frame to bring it to life. Tap to explore on mobile.',bg:0xe0dfd9},arcade:{name:'Game Arcade',en:'AFTER HOURS ARCADE',hint:'Pick a cabinet. Insert a coin. Discover a game.',bg:0x181a2b}};
 export class RoomController{
