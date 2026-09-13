@@ -8,6 +8,8 @@ Builder’s Studio is a lived-in home with a sofa facing a vintage TV, a bed, a 
 
 The TV, docked Switch prop and remote open a separate favorite-game collection. Select Zenless Zone Zero, Zelda: Breath of the Wild, Zelda: Tears of the Kingdom, Skul, Slay the Spire or Sekiro to change the TV artwork and visit its official game page. Arrow keys also cycle through the collection. This is a favorites viewer; the games themselves are not embedded.
 
+The Builder Post hangs on the Studio wall. Click the newspaper or POST button to bring it forward and read its career edition. The front page and four sections collect nine certifications, learning records, honors and industry-practicum entries, each linked to the original portfolio record. The paper adapts to mobile reading and respects reduced-motion settings.
+
 The campus island is approximately 50% larger, giving the house its own front garden and a connected walking route. The walker starts on a visible path and remains identifiable through buildings using a silhouette; overlapping nameplates move aside. Potted plants use separate soil, stems and leaves. The home’s arrangement takes inspiration from user-supplied Random Play references; the scene uses original Three.js geometry and the portfolio’s existing project screenshots.
 
 **Explore: https://yumin-beep.github.io/builder-campus/**

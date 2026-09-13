@@ -47,3 +47,7 @@ Official game artwork is displayed as part of Yumin’s personal favorites, sepa
 - Skul: The Hero Slayer: [Publisher's Steam store page](https://store.steampowered.com/app/1147560/Skul_The_Hero_Slayer/), [original image](https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1147560/capsule_616x353.jpg?t=1774420210).
 - Slay the Spire: [Publisher's Steam store page](https://store.steampowered.com/app/646570/Slay_the_Spire/), [original image](https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/646570/capsule_616x353.jpg?t=1774015376).
 - Sekiro: Shadows Die Twice: [Publisher's Steam store page](https://store.steampowered.com/app/814380/Sekiro_Shadows_Die_Twice__GOTY_Edition/), [original image](https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/814380/capsule_616x353.jpg?t=1762888662).
+
+## The Builder Post
+
+The newspaper uses original Three.js geometry, canvas typography and HTML/CSS. Career entries are drawn from Yumin Kang's [portfolio](https://app.notion.com/p/3d2cea20cae1813bba6bd6a084a4f183), [DANCE training record](https://app.notion.com/p/33fcea20cae18212a1838114ed6d1bc6), [On-Geul course record](https://app.notion.com/p/3d2cea20cae1819eaeccddb8da37f3d0) and [CloudSquare practicum record](https://app.notion.com/p/eedcea20cae182c6a77581abc2ad4b9d). Its photograph is the existing NCP prototype screenshot, not a certificate or award document. The user-supplied newspaper reference was used for art direction and is not redistributed.

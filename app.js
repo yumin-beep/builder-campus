@@ -1,5 +1,5 @@
 import * as THREE from './vendor/three.module.js';
-import { RoomController } from './rooms.js?v=5e2d01d87710';
+import { RoomController } from './rooms.js?v=5c33e06c7478';
 import { artworks } from './room-data.js?v=408d41d95851';
 import {mountArtworkMedia} from './art-media.js?v=a6f536d82bd4';
 import {studioProjects,startupProgram,studioWorks,studioStory,studioLinks} from './studio-data.js?v=1e02eecdf638';

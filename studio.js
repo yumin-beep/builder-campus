@@ -1,6 +1,7 @@
 import * as THREE from './vendor/three.module.js';
 import {studioWorks} from './studio-data.js?v=1e02eecdf638';
 import {favoriteGames} from './favorite-games.js?v=0c87dde84cf3';
+import {buildNewspaper,tickNewspaper} from './studio-news.js?v=5d6aa780f4b8';
 
 const COLORS=[0xc96b47,0x667f9c,0xb8955a,0x547d76,0x687bb1,0xb17f78];
 function roundBox(c,parent,w,h,d,color,x=0,y=0,z=0,r=.12){
@@ -97,7 +98,7 @@ export function buildStudio(c,room){
  const deskObject=c.box(s,.98,.08,.76,0xc89552,9.9,1.76,2.75);c.interact(room,deskObject,'home-desk','Notebook · Desktop Widget Designer');room.objects.get('home-desk').workId='widget';
  c.cylinder(s,.14,.14,.38,0x4f6864,5.78,1.93,2.57);for(let i=0;i<4;i++)rod(c,s,new THREE.Vector3(5.71+i*.04,1.99,2.57),new THREE.Vector3(5.67+i*.07,2.45,2.54),.015,0xd9b266);
  rod(c,s,new THREE.Vector3(10.12,1.72,1.95),new THREE.Vector3(10.12,2.81,1.95),.033,0x3e5250);c.cylinder(s,.2,.32,.32,0xc9b28a,10.12,2.93,1.95);
- c.box(s,3.9,1.55,.17,0x9b7752,8,4.16,-8.74);for(let i=0;i<4;i++){const frame=new THREE.Group();frame.position.set(6.8+(i%2)*2.3,4.58-Math.floor(i/2)*.8,-8.6);frame.rotation.z=(i%2?.06:-.09);s.add(frame);c.box(frame,1.25,.68,.03,0xe3d6bb);c.photo(frame,studioWorks[i].image,1.16,.59,0,0,.025);}
+ buildNewspaper(c,room);
  // Pendant, scattered books, and plants with stems rooted inside their pots.
  c.cylinder(s,.035,.035,1.6,0x2e3b3b,-6.5,6.24,.6);c.cylinder(s,.22,.85,.65,0xa94e33,-6.5,5.16,.6);c.cylinder(s,.78,.78,.035,0xf2ce8b,-6.5,4.83,.6);
  const pendant=new THREE.PointLight(0xffce8c,18,12,2);pendant.position.set(-6.5,4.65,.6);s.add(pendant);
@@ -113,6 +114,7 @@ export function pickTape(room,id,reduced){
  returnTape(room);room.activeTape=room.tapes.find(t=>t.id===id);room.tapeState='pulling';room.tapeStarted=performance.now();room.tapeReduced=reduced;
 }
 export function tickStudio(c,room,now,dt,ease){
+ tickNewspaper(c,room,now,ease);
  for(const tape of room.tapes){if(tape===room.activeTape)continue;const hover=tape.id===c.hovered&&!c.reduced;tape.group.position.lerp(tape.home.clone().add(new THREE.Vector3(0,hover?.06:0,hover?.45:0)),ease);tape.group.rotation.y=THREE.MathUtils.lerp(tape.group.rotation.y,hover?-.18:0,ease);}
  if(!room.activeTape)return;
  const tape=room.activeTape,t=room.tapeReduced?1:Math.min((now-room.tapeStarted)/950,1),smooth=t*t*(3-2*t);
