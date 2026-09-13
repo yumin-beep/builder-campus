@@ -29,7 +29,7 @@ export const studioProjects=[
   problem:'A cloud application needs clear boundaries between its web layer, application logic and data.',
   role:'During my CloudSquare practicum, I designed the Web / WAS / DB structure and implemented authentication, posts, uploads, security settings and deployment.',
   result:'A completed individual NCP training PoC, with GitHub Actions deployment. Production monitoring, recovery and autoscaling were outside the assignment’s scope.',
-  detail:'Original bulletin board screenshot. The server model opens a simplified architecture view.',
+  detail:'Original bulletin board screenshot. Side B explains the cloud architecture.',
   url:'https://app.notion.com/p/eedcea20cae182c6a77581abc2ad4b9d',link:'Read the practicum record',links:[['Explore the code','https://github.com/yumin-beep/ncp-3tier-architecture']]}
 ];
 export const startupProgram={id:'modoo',no:'2026',title:'Modoo Startup · First Cohort',station:'startup',activity:true,type:'Startup program · 2026',tools:'Prototype · Landing page · Business plan',image:'./assets/studio/modoo-startup-banner.png',status:'First-round selection · Final submission complete',
@@ -37,15 +37,9 @@ export const startupProgram={id:'modoo',no:'2026',title:'Modoo Startup · First 
  problem:'Take an ingredient-cost idea beyond a pitch and make it concrete enough to evaluate.',
  role:'I helped turn the SearchPrice idea into a focused prototype, a landing page, a business plan and activity reports.',
  result:'Selected in the first round of the 2026 Modoo Startup program; completed the final submission.',
- detail:'Original program banner. Explore SearchPrice on the screen beside the planning board.',
+ detail:'Original program banner. The SearchPrice LP contains the related product prototype.',
  url:'https://app.notion.com/p/3d2cea20cae181a390d1d1e2cd51d3f6',link:'Read the program record'};
 export const studioWorks=[...studioProjects,startupProgram,widget];
-export const studioStations=[
- {id:'startup',label:'Startup pitch table',short:'01 · Startup',defaultId:'searchprice',works:['searchprice','modoo'],x:-6.25,z:-3.5,color:0xd9946a},
- {id:'workbench',label:'Project workbench',short:'02 · Projects',defaultId:'stayfinder',works:['stayfinder','ongeul','widget'],x:0,z:-.2,color:0x799991},
- {id:'industry',label:'Industry practicum',short:'03 · Practicum',defaultId:'ncp',works:['ncp'],x:6.25,z:-3.5,color:0x7e91b1}
-];
-export function stationFor(id){return studioStations.find(station=>station.works.includes(id));}
 export function studioStory(work){return work.id==='widget'?[
  ['The idea','A visual editor for composing and shaping desktop widgets.'],
  ['My role',work.description],
