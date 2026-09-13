@@ -2,6 +2,8 @@
 
 An interactive portfolio featuring a walkable campus, a community clubhouse, a game-making gallery and a retro arcade.
 
+The LEVEL0 clubhouse has five lockers and six pinned photographs covering eight activities, including PlayX4, an art exhibition, an admissions fair, and a Discord game jam kickoff. Open an activity to browse its photo album.
+
 **Explore: https://yumin-beep.github.io/builder-campus/**
 
 Static HTML, CSS and JavaScript with Three.js. Serve this folder with a local HTTP server to preview. Published through GitHub Pages from the main branch.
