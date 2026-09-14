@@ -12,6 +12,8 @@ The Builder Post hangs on the Studio wall. Click the newspaper or POST button to
 
 The campus island is approximately 50% larger, giving the house its own front garden and a connected walking route. The walker starts on a visible path and remains identifiable through buildings using a silhouette; overlapping nameplates move aside. Potted plants use separate soil, stems and leaves. The home’s arrangement takes inspiration from user-supplied Random Play references; the scene uses original Three.js geometry and the portfolio’s existing project screenshots.
 
+Three small outdoor encounters bring the walk to life: an elderly bicycle postman rings his bell and yields to the walker; LEVEL0 members emerge from behind the clubhouse when approached, wave, and return; a neighborhood announcer with a megaphone has rotating lines. Click a person, press F nearby, or tap Say hello on mobile. Little moments records the three discoveries for the current visit. Sound can be muted, and reduced-motion mode keeps the encounters available without walking or cycling animation. Encounters and audio pause while indoors, in a project overlay, in the discovery journal, or while the page is hidden.
+
 **Explore: https://yumin-beep.github.io/builder-campus/**
 
 Static HTML, CSS and JavaScript with Three.js. Serve this folder with a local HTTP server to preview. Published through GitHub Pages from the main branch.
