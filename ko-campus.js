@@ -27,7 +27,7 @@ export const koCampus = {
   "LEVEL0 CLUBHOUSE": "LEVEL0 동아리방",
   "LEVEL0 Clubhouse": "LEVEL0 동아리방",
   "Open a locker. Meet the community.": "사물함을 열고, 함께한 사람들을 만나보세요.",
-  "AI WORKS GALLERY": "AI 작업 갤러리",
+  "AI x Works Gallery": "AI x 작업 갤러리",
   "Step inside the making gallery.": "작품이 만들어진 과정을 만나보세요.",
   "GAME ARCADE": "게임 아케이드",
   "Game Arcade": "게임 아케이드",
@@ -108,7 +108,7 @@ export const koCampus = {
   "Help co-organize a regional game jam connecting eight universities.": "8개 대학을 잇는 지역 게임잼의 공동 운영에 참여합니다.",
   "Play the jam entries": "게임잼 출품작 플레이",
   "Club records": "동아리 활동 기록",
-  "02 / AI WORKS GALLERY": "02 / AI 작업 갤러리",
+  "02 / AI x Works Gallery": "02 / AI x 작업 갤러리",
   "Prototype in development": "개발 중인 프로토타입",
   "Job Battle:": "직업대전:",
   "Building and debugging.": "구현과 디버깅.",
@@ -157,7 +157,7 @@ export const koCampus = {
 
   // Nearby-building prompts are generated from zoneInfo.name.
   "Enter LEVEL0 Clubhouse": "LEVEL0 동아리방 들어가기",
-  "Enter AI WORKS GALLERY": "AI 작업 갤러리 들어가기",
+  "Enter AI x Works Gallery": "AI x 작업 갤러리 들어가기",
   "Enter Game Arcade": "게임 아케이드 들어가기",
   "Enter Builder’s Studio": "빌더의 작업실 들어가기",
 
