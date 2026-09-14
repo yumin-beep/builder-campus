@@ -1,12 +1,12 @@
 import * as THREE from './vendor/three.module.js';
-import {t as translate,localizeCanvas,languageButton,setLocalizedText} from './i18n.js?v=a514849e3eea';
+import {t as translate,localizeCanvas,languageButton,setLocalizedText} from './i18n.js?v=6da7fdff2806';
 import {memories,whiteboardPhotos,artworks,cabinets} from './room-data.js?v=408d41d95851';
 import {mountArtworkMedia,hasArtworkMotion} from './art-media.js?v=a6f536d82bd4';
 import {studioWorks,studioStory,studioLinks} from './studio-data.js?v=1e02eecdf638';
-import {buildStudio,architectureHTML,pickTape,returnTape,tickStudio} from './studio.js?v=c046bbc928d6';
+import {buildStudio,architectureHTML,pickTape,returnTape,tickStudio} from './studio.js?v=29607d490b8c';
 import {favoriteGames} from './favorite-games.js?v=0c87dde84cf3';
 import {televisionScreen,televisionLibrary} from './studio-tv.js?v=0cc13d2286f5';
-import {newspaperHTML,newspaperEdition,pickNewspaper,returnNewspaper} from './studio-news.js?v=494c308cf01f';
+import {newspaperHTML,newspaperEdition,pickNewspaper,returnNewspaper} from './studio-news.js?v=4024fa70d051';
 const $=s=>document.querySelector(s);
 const INFO={studio:{name:'Builder’s Studio',en:'AFTER HOURS / AT HOME',hint:'Pick a project tape, read the newspaper, or turn on the TV.',bg:0x202f32},community:{name:'LEVEL0 Clubhouse',en:'THE CLUBHOUSE',hint:'Open a locker or click a photo on the whiteboard.',bg:0xd8dfc9},lab:{name:'Claude × Unity Gallery',en:'THE MAKING GALLERY',hint:'Hover over a frame to bring it to life. Tap to explore on mobile.',bg:0xe0dfd9},arcade:{name:'Game Arcade',en:'AFTER HOURS ARCADE',hint:'Pick a cabinet. Insert a coin. Discover a game.',bg:0x181a2b}};
 export class RoomController{

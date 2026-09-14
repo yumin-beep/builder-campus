@@ -1,8 +1,8 @@
 import * as THREE from './vendor/three.module.js';
-import {t as translate,localizeCanvas} from './i18n.js?v=a514849e3eea';
+import {t as translate,localizeCanvas} from './i18n.js?v=6da7fdff2806';
 import {studioWorks} from './studio-data.js?v=1e02eecdf638';
 import {favoriteGames} from './favorite-games.js?v=0c87dde84cf3';
-import {buildNewspaper,tickNewspaper} from './studio-news.js?v=494c308cf01f';
+import {buildNewspaper,tickNewspaper} from './studio-news.js?v=4024fa70d051';
 
 const COLORS=[0xc96b47,0x667f9c,0xb8955a,0x547d76,0x687bb1,0xb17f78];
 function roundBox(c,parent,w,h,d,color,x=0,y=0,z=0,r=.12){
