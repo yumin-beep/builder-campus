@@ -1,4 +1,5 @@
 import * as THREE from './vendor/three.module.js';
+import {t as translate,localizeCanvas} from './i18n.js?v=a514849e3eea';
 import {newsItems} from './news-data.js?v=d82bf9f04928';
 
 const sections=[['front','Front page'],['certifications','Certifications'],['learning','Learning'],['honors','Honors'],['fieldwork','Fieldwork']];
@@ -20,14 +21,15 @@ export function buildNewspaper(c,room){
  const s=room.scene;const board=c.box(s,5.8,3.15,.2,0x987044,8,4.06,-8.72);c.interact(room,board,'home-news-board','The Builder Post · Credentials & milestones');
  const group=new THREE.Group();group.position.set(8,4.06,-8.53);s.add(group);
  for(let i=2;i>=0;i--){const sheet=c.box(group,5.4,2.92,.018,i%2?0xd3c4a4:0xe8dcc3,i*.035,-i*.027,-i*.025);sheet.rotation.z=(i-1)*.012;}
- const canvas=document.createElement('canvas');canvas.width=1600;canvas.height=880;const x=canvas.getContext('2d');x.fillStyle='#e8dcc3';x.fillRect(0,0,1600,880);
- x.fillStyle='#24372f';x.fillRect(38,40,1524,10);x.fillRect(38,224,1524,8);x.font='bold 30px monospace';x.fillText('YUMIN KANG / CAREER EDITION',48,92);x.font='bold 125px Georgia';x.fillText('THE BUILDER POST',48,205);
- x.fillStyle='#ae442f';x.fillRect(40,249,1520,58);x.fillStyle='#f7eacb';x.font='bold 32px sans-serif';x.fillText('EXTRA! EXTRA!   /   BEYOND THE PROJECTS',60,290);
- x.fillStyle='#24372f';x.font='bold 72px Georgia';x.fillText('Learning. Making.',52,397);x.fillText('Showing up.',52,479);x.fillRect(1010,339,3,480);x.font='bold 36px sans-serif';x.fillText('ON THE RECORD',1060,390);
- const labels=sections.slice(1).filter(([id])=>newsItems.some(n=>n.category===id));labels.forEach(([id,title],i)=>{x.font='bold 32px Georgia';x.fillText(title,1060,456+i*96);x.font='23px monospace';x.fillText(String(newsItems.filter(n=>n.category===id).length)+' ENTRIES',1060,489+i*96);});
- x.strokeStyle='#24372f';x.lineWidth=6;x.strokeRect(55,532,899,214);x.font='bold 33px monospace';x.fillText('FIELD NOTES / IN PROGRESS',82,582);for(let i=0;i<3;i++){x.strokeRect(83+i*291,614,234,84);x.font='bold 33px sans-serif';x.fillText(['LEARN','BUILD','SHARE'][i],118+i*291,670);if(i<2)x.fillText('→',328+i*291,670);}
- x.font='24px monospace';x.fillText('OPEN THE PAPER  /  READ THE STORIES INSIDE',54,807);x.fillRect(38,841,1524,5);
- const tex=new THREE.CanvasTexture(canvas);tex.colorSpace=THREE.SRGBColorSpace;const page=new THREE.Mesh(new THREE.PlaneGeometry(5.32,2.926),new THREE.MeshBasicMaterial({map:tex,toneMapped:false}));page.position.z=.025;group.add(page);
+ const canvas=document.createElement('canvas');canvas.width=1600;canvas.height=880;const x=canvas.getContext('2d'),tex=new THREE.CanvasTexture(canvas);tex.colorSpace=THREE.SRGBColorSpace;localizeCanvas(canvas,tex,()=>{x.fillStyle='#e8dcc3';x.fillRect(0,0,1600,880);
+ x.fillStyle='#24372f';x.fillRect(38,40,1524,10);x.fillRect(38,224,1524,8);x.font='bold 30px monospace';x.fillText(translate('YUMIN KANG / CAREER EDITION'),48,92);x.font='bold 125px Georgia';x.fillText(translate('THE BUILDER POST'),48,205);
+ x.fillStyle='#ae442f';x.fillRect(40,249,1520,58);x.fillStyle='#f7eacb';x.font='bold 32px sans-serif';x.fillText(translate('EXTRA! EXTRA!   /   BEYOND THE PROJECTS'),60,290);
+ x.fillStyle='#24372f';x.font='bold 72px Georgia';x.fillText(translate('Learning. Making.'),52,397);x.fillText(translate('Showing up.'),52,479);x.fillRect(1010,339,3,480);x.font='bold 36px sans-serif';x.fillText(translate('ON THE RECORD'),1060,390);
+ const labels=sections.slice(1).filter(([id])=>newsItems.some(n=>n.category===id));labels.forEach(([id,title],i)=>{x.font='bold 32px Georgia';x.fillText(translate(title),1060,456+i*96);x.font='23px monospace';x.fillText(translate(String(newsItems.filter(n=>n.category===id).length)+' ENTRIES'),1060,489+i*96);});
+ x.strokeStyle='#24372f';x.lineWidth=6;x.strokeRect(55,532,899,214);x.font='bold 33px monospace';x.fillText(translate('FIELD NOTES / IN PROGRESS'),82,582);for(let i=0;i<3;i++){x.strokeRect(83+i*291,614,234,84);x.font='bold 33px sans-serif';x.fillText(translate(['LEARN','BUILD','SHARE'][i]),118+i*291,670);if(i<2)x.fillText(translate('→'),328+i*291,670);}
+ x.font='24px monospace';x.fillText(translate('OPEN THE PAPER  /  READ THE STORIES INSIDE'),54,807);x.fillRect(38,841,1524,5);
+ });
+ const page=new THREE.Mesh(new THREE.PlaneGeometry(5.32,2.926),new THREE.MeshBasicMaterial({map:tex,toneMapped:false}));page.position.z=.025;group.add(page);
  for(const xPos of[-2.32,2.32]){c.box(s,.29,.22,.08,0x334440,8+xPos,5.48,-8.38);c.box(s,.2,.05,.1,0xc5b58c,8+xPos,5.58,-8.34);}
  c.interact(room,group,'home-news','The Builder Post · Read the newspaper');room.news={group,home:group.position.clone(),read:new THREE.Vector3(7.6,4.1,-3.8),active:false};
 }

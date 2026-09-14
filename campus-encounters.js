@@ -1,4 +1,5 @@
 import * as THREE from './vendor/three.module.js';
+import {languageButton,setLocalizedText} from './i18n.js?v=a514849e3eea';
 import {makeCampusCast} from './campus-cast.js?v=5923599a2e7f';
 import {CampusSound} from './campus-sound.js?v=730d707576fa';
 
@@ -37,7 +38,7 @@ export class CampusEncounters{
   this.journal.addEventListener('click',e=>{if(e.target.closest('[data-close-moments]'))this.journal.close();if(e.target===this.journal){const r=this.journal.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)this.journal.close();}});
  }
  syncSound(){this.soundButton.textContent=this.sound.enabled?'♪ Sound on':'♪ Sound off';this.soundButton.setAttribute('aria-pressed',String(this.sound.enabled));this.soundButton.setAttribute('aria-label',this.sound.enabled?'Mute campus sounds':'Enable campus sounds');}
- openJournal(){this.onPause();this.pause();this.journal.innerHTML=`<header class="moments-journal-header"><span>NOTES FROM A WALK</span><button type="button" data-close-moments aria-label="Close little moments">×</button></header><h2 id="moments-title">People make<br>a campus.</h2><p class="moments-journal-intro">Small encounters, somewhere between projects.<br><strong>${this.found.size} of 3 little moments found</strong></p><div class="moments-entries">${Object.entries(people).map(([id,p],i)=>`<article class="moment-entry ${this.found.has(id)?'is-found':''}"><span class="moment-entry-no">0${i+1}</span><div><span class="moment-entry-label">${this.found.has(id)?p.name:'Still out there'}</span><h3>${this.found.has(id)?p.title:'An unwritten page'}</h3><p>${this.found.has(id)?'“'+p.lines[0]+'”':p.hint}</p></div><span class="moment-entry-icon" aria-hidden="true">${this.found.has(id)?p.icon:'?'}</span></article>`).join('')}</div><button type="button" class="moments-return" data-close-moments>Back to the walk <span aria-hidden="true">↗</span></button>`;this.journal.showModal();}
+ openJournal(){this.onPause();this.pause();this.journal.innerHTML=`<header class="moments-journal-header"><span>NOTES FROM A WALK</span><div class="moments-journal-actions">${languageButton()}<button type="button" data-close-moments aria-label="Close little moments">×</button></div></header><h2 id="moments-title">People make<br>a campus.</h2><p class="moments-journal-intro">Small encounters, somewhere between projects.<br><strong>${this.found.size} of 3 little moments found</strong></p><div class="moments-entries">${Object.entries(people).map(([id,p],i)=>`<article class="moment-entry ${this.found.has(id)?'is-found':''}"><span class="moment-entry-no">0${i+1}</span><div><span class="moment-entry-label">${this.found.has(id)?p.name:'Still out there'}</span><h3>${this.found.has(id)?p.title:'An unwritten page'}</h3><p>${this.found.has(id)?'“'+p.lines[0]+'”':p.hint}</p></div><span class="moment-entry-icon" aria-hidden="true">${this.found.has(id)?p.icon:'?'}</span></article>`).join('')}</div><button type="button" class="moments-return" data-close-moments>Back to the walk <span aria-hidden="true">↗</span></button>`;this.journal.showModal();}
  pause(){this.onPause();this.active=false;this.hud.hidden=true;this.sound.quiet();}
  discover(id){if(this.found.has(id))return false;this.found.add(id);this.book.querySelector('b').textContent=`${this.found.size} / 3`;return true;}
  speak(id,{automatic=false}={}){
@@ -53,7 +54,7 @@ export class CampusEncounters{
   if(this.toastUntil<=this.time){this.toast.hidden=true;this.toastOwner=null;if(this.pending.length)this.speak(this.pending.shift(),{automatic:true});}
   this.updatePostman(dt,player);this.updateCrew(dt,player);this.updateAuntie(dt,player);
   let best=4.6;this.nearest=null;for(const actor of this.actorRoots){if(!actor.visible)continue;const distance=Math.hypot(actor.position.x-player.position.x,actor.position.z-player.position.z);if(distance<best){best=distance;this.nearest=actor.userData.encounter;}}
-  this.hello.hidden=!this.nearest;if(this.nearest)this.hello.querySelector('span').textContent=`Say hello · ${this.nearest==='postman'?'Postman':this.nearest==='crew'?'LEVEL0 crew':'Announcer'}`;
+  this.hello.hidden=!this.nearest;if(this.nearest)setLocalizedText(this.hello.querySelector('span'),`Say hello · ${this.nearest==='postman'?'Postman':this.nearest==='crew'?'LEVEL0 crew':'Announcer'}`);
  }
  updatePostman(dt,player){
   const {postman,wheels,rider}=this.cast;const distance=postman.position.distanceTo(player.position);

@@ -1,7 +1,8 @@
 import * as THREE from './vendor/three.module.js';
+import {t as translate,localizeCanvas} from './i18n.js?v=a514849e3eea';
 import {studioWorks} from './studio-data.js?v=1e02eecdf638';
 import {favoriteGames} from './favorite-games.js?v=0c87dde84cf3';
-import {buildNewspaper,tickNewspaper} from './studio-news.js?v=5d6aa780f4b8';
+import {buildNewspaper,tickNewspaper} from './studio-news.js?v=494c308cf01f';
 
 const COLORS=[0xc96b47,0x667f9c,0xb8955a,0x547d76,0x687bb1,0xb17f78];
 function roundBox(c,parent,w,h,d,color,x=0,y=0,z=0,r=.12){
@@ -16,15 +17,15 @@ function coverTexture(c,work,color){
  const poster=new Image();
  const draw=()=>{
   ctx.fillStyle='#'+color.toString(16);ctx.fillRect(0,0,600,920);ctx.fillStyle='#192c2b';ctx.fillRect(0,0,600,70);
-  ctx.fillStyle='#e7edb8';ctx.font='700 24px sans-serif';ctx.fillText('YUMIN / PROJECT ARCHIVES',30,44);
+  ctx.fillStyle='#e7edb8';ctx.font='700 24px sans-serif';ctx.fillText(translate('YUMIN / PROJECT ARCHIVES'),30,44);
   ctx.fillStyle='#e9dfc8';ctx.fillRect(25,100,550,480);
   if(poster.naturalWidth){const scale=Math.min(530/poster.naturalWidth,445/poster.naturalHeight);ctx.drawImage(poster,300-poster.naturalWidth*scale/2,340-poster.naturalHeight*scale/2,poster.naturalWidth*scale,poster.naturalHeight*scale);}
   ctx.fillStyle='#f4e8ce';ctx.font='700 47px sans-serif';let line='',y=650;
-  for(const word of work.title.replace('Babsangmeori / ','').replace(' · First Cohort','').split(' ')){if(ctx.measureText(line+' '+word).width>525){ctx.fillText(line,32,y);y+=56;line=word;}else line+=(line?' ':'')+word;}ctx.fillText(line,32,y);
-  ctx.fillStyle='#192c2b';ctx.fillRect(25,814,550,78);ctx.fillStyle='#e7edb8';ctx.font='700 24px monospace';ctx.fillText('VHS / FILE '+work.no,44,862);
+  for(const word of translate(work.title).replace('Babsangmeori / ','').replace(' · First Cohort','').split(' ')){if(ctx.measureText(line+' '+word).width>525){ctx.fillText(line,32,y);y+=56;line=word;}else line+=(line?' ':'')+word;}ctx.fillText(line,32,y);
+  ctx.fillStyle='#192c2b';ctx.fillRect(25,814,550,78);ctx.fillStyle='#e7edb8';ctx.font='700 24px monospace';ctx.fillText(translate('VHS / FILE '+work.no),44,862);
   for(let i=0;i<24;i++)ctx.fillRect(397+i*6,832,i%3+1,38);texture.needsUpdate=true;
  };
- poster.onload=draw;poster.src=work.image;draw();return texture;
+ poster.onload=draw;poster.src=work.image;localizeCanvas(canvas,texture,draw);return texture;
 }
 
 export function buildStudio(c,room){
