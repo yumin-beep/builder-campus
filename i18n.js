@@ -1,5 +1,5 @@
-import {koCampus} from './ko-campus.js?v=a9b8fda4d80d';
-import {koRoom} from './ko-room.js?v=26265c8a435b';
+import {koCampus} from './ko-campus.js?v=1a605f11c85f';
+import {koRoom} from './ko-room.js?v=d756a6f193b1';
 import {koStudio} from './ko-studio.js?v=54171bfb585f';
 
 const normalize=s=>String(s).replace(/\s+/g,' ').trim();
@@ -10,7 +10,7 @@ const extras={
  'Resume PDF':'영문 이력서 PDF','Resume PDF ↓':'영문 이력서 PDF ↓',
  'YUMIN CAMPUS — Yumin Kang':'유민 캠퍼스 — 강유민',
  'Yumin Kang · Builder Campus':'강유민 · 빌더 캠퍼스',
- 'Explore Yumin Kang’s builder campus: games made with Claude, a student community, startup projects, personal tools and industry practice.':'강유민의 빌더 캠퍼스를 둘러보세요. Claude와 만든 게임, 동아리, 창업 프로젝트, 개인 개발 도구와 현장실습을 소개합니다.',
+ 'Explore Yumin Kang’s builder campus: games, a student community, startup projects, personal tools and industry practice.':'강유민의 빌더 캠퍼스를 둘러보세요. 게임과 동아리, 창업 프로젝트, 개인 개발 도구와 현장실습을 소개합니다.',
  'Games, useful tools and people who build. Explore my interactive portfolio campus.':'게임과 유용한 도구, 그리고 함께 만드는 사람들. 직접 걸으며 탐색하는 포트폴리오 캠퍼스입니다.'
 };
 const dictionary=new Map(Object.entries({...koCampus,...koRoom,...koStudio,...extras}).map(([a,b])=>[normalize(a),b]));

@@ -4,7 +4,7 @@
 // included where useful; imported project data belongs to its own dictionary.
 export const koCampus = {
   // Document metadata and the campus entrance.
-  "Explore Yumin Kang’s builder campus: games made with Claude, a student community, startup projects, personal tools and industry practice.": "강유민의 빌더 캠퍼스를 둘러보세요. Claude와 만든 게임부터 학생 커뮤니티, 창업 프로젝트, 개인 도구, 현장 실습까지 담았습니다.",
+  "Explore Yumin Kang’s builder campus: games, a student community, startup projects, personal tools and industry practice.": "강유민의 빌더 캠퍼스를 둘러보세요. 게임과 동아리, 창업 프로젝트, 개인 개발 도구와 현장실습을 소개합니다.",
   "YUMIN CAMPUS — Yumin Kang": "YUMIN CAMPUS — 강유민",
   "Yumin Kang · Builder Campus": "강유민 · 빌더 캠퍼스",
   "Games, useful tools and people who build. Explore my interactive portfolio campus.": "게임과 쓸모 있는 도구, 그리고 함께 만드는 사람들. 직접 걸으며 살펴보는 포트폴리오 캠퍼스입니다.",
@@ -27,7 +27,7 @@ export const koCampus = {
   "LEVEL0 CLUBHOUSE": "LEVEL0 동아리방",
   "LEVEL0 Clubhouse": "LEVEL0 동아리방",
   "Open a locker. Meet the community.": "사물함을 열고, 함께한 사람들을 만나보세요.",
-  "CLAUDE × UNITY": "CLAUDE × UNITY",
+  "AI WORKS GALLERY": "AI 작업 갤러리",
   "Step inside the making gallery.": "작품이 만들어진 과정을 만나보세요.",
   "GAME ARCADE": "게임 아케이드",
   "Game Arcade": "게임 아케이드",
@@ -38,7 +38,6 @@ export const koCampus = {
   "Go directly to a space": "공간으로 바로 이동",
   "CAMPUS DIRECTORY": "캠퍼스 안내",
   "COMMUNITY": "커뮤니티",
-  "AI WORKSHOP": "AI 워크숍",
   "PLAYGROUND": "플레이그라운드",
   "DAEGU, KR": "대한민국, 대구",
   "From idea to play.": "아이디어에서 플레이까지.",
@@ -74,7 +73,7 @@ export const koCampus = {
   "Developer / Founder of LEVEL0": "개발자 / LEVEL0 설립자",
   "Yumin Kang · Computer Software, Daegu University Developer / Founder of LEVEL0": "강유민 · 대구대학교 컴퓨터소프트웨어 · 개발자 / LEVEL0 설립자",
   "From finding teammates to six teams shipping their first jam games.": "팀원을 찾는 순간부터, 여섯 팀이 첫 게임잼 작품을 완성하기까지.",
-  "Using Claude Code and Unity MCP to inspect, build and debug in the editor.": "Claude Code와 Unity MCP로 에디터 안에서 확인하고, 만들고, 디버깅합니다.",
+  "Explore game projects, AI-assisted workflows and interactive tools.": "게임 프로젝트와 AI를 활용한 제작 과정, 인터랙티브 도구를 살펴보세요.",
   "Insert a coin to discover playable games and our first game jam.": "동전을 넣고, 직접 즐길 수 있는 게임과 첫 게임잼을 만나보세요.",
   "A lived-in home. Browse project tapes and discover the work behind each case.": "생활의 흔적이 담긴 집입니다. 프로젝트 테이프를 골라, 각 작업에 담긴 과정을 살펴보세요.",
   "Resume PDF ↓": "이력서 PDF ↓",
@@ -109,11 +108,11 @@ export const koCampus = {
   "Help co-organize a regional game jam connecting eight universities.": "8개 대학을 잇는 지역 게임잼의 공동 운영에 참여합니다.",
   "Play the jam entries": "게임잼 출품작 플레이",
   "Club records": "동아리 활동 기록",
-  "02 / AI WORKSHOP": "02 / AI 워크숍",
+  "02 / AI WORKS GALLERY": "02 / AI 작업 갤러리",
   "Prototype in development": "개발 중인 프로토타입",
-  "Building with Claude.": "Claude와 함께 만들고,",
-  "Debugging in the game.": "게임 안에서 디버깅합니다.",
-  "Building with Claude. Debugging in the game.": "Claude와 함께 만들고, 게임 안에서 디버깅합니다.",
+  "Job Battle:": "직업대전:",
+  "Building and debugging.": "구현과 디버깅.",
+  "Job Battle: Building and debugging.": "직업대전: 구현과 디버깅.",
   "For Job Battle, I defined the rules and art direction, then connected Claude Code to Unity MCP. I used the editor and live play-mode state to check what the code was actually doing.": "Job Battle의 게임 규칙과 아트 방향을 정하고, Claude Code를 Unity MCP에 연결했습니다. 에디터와 실행 중인 플레이 모드 상태를 살펴보며 코드가 실제로 어떻게 동작하는지 확인했습니다.",
   "The code looked right. The character stayed still.": "코드는 맞아 보였지만, 캐릭터는 움직이지 않았습니다.",
   "Idle and Attack animation errors kept returning after fixes. Inspecting the player created at runtime revealed that its Animator had no controller assigned.": "수정 후에도 Idle과 Attack 애니메이션 오류가 반복됐습니다. 실행 중 생성된 플레이어를 살펴보니 Animator에 컨트롤러가 지정되어 있지 않았습니다.",
@@ -158,7 +157,7 @@ export const koCampus = {
 
   // Nearby-building prompts are generated from zoneInfo.name.
   "Enter LEVEL0 Clubhouse": "LEVEL0 동아리방 들어가기",
-  "Enter CLAUDE × UNITY": "CLAUDE × UNITY 들어가기",
+  "Enter AI WORKS GALLERY": "AI 작업 갤러리 들어가기",
   "Enter Game Arcade": "게임 아케이드 들어가기",
   "Enter Builder’s Studio": "빌더의 작업실 들어가기",
 

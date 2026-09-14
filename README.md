@@ -1,6 +1,6 @@
 # Yumin Kang · Builder Campus
 
-An interactive portfolio featuring a walkable campus, a community clubhouse, a game-making gallery, a retro arcade and Builder’s Studio.
+An interactive portfolio featuring a walkable campus, a community clubhouse, the AI Works Gallery, a retro arcade and Builder’s Studio.
 
 The LEVEL0 clubhouse has five lockers and six pinned photographs covering eight activities, including PlayX4, an art exhibition, an admissions fair, and a Discord game jam kickoff. Open an activity to browse its photo album.
 
