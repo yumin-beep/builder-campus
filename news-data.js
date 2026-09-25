@@ -1,4 +1,21 @@
 export const newsItems=[
+{
+  "id": "modoo-university",
+  "category": "fieldwork",
+  "title": "Modoo Startup · University League",
+  "headline": "From business plan to Round 2.",
+  "date": "2026",
+  "status": "Second intake · Round 2 confirmed",
+  "summary": "이게제프, a game-studio team centered on Debug Master, secured Round 2 advancement in the second intake of Modoo Startup’s University League.",
+  "details": [
+    "I wrote the business plan, researched and structured the pitch deck, and supported the team leader’s pitch preparation and rehearsals. Debug Master is in prototype planning; I am assigned a development role, with specific features and technologies still undecided.",
+    "This is a separate venture from Babsangmeori, which was selected for Round 1 in the earlier intake but did not advance to Round 2."
+  ],
+  "url": "https://app.notion.com/p/3e6cea20cae18185977ec259e0682295",
+  "link": "Read the university league record",
+  "image": "./assets/studio/startup-2026/team.jpg",
+  "caption": "Team photo at the 2026 University Startup Festival."
+},
   {
     "id": "cloudsquare",
     "category": "fieldwork",

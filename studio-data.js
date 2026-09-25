@@ -32,13 +32,36 @@ export const studioProjects=[
   detail:'Original bulletin board screenshot. The architecture tab explains the cloud setup.',
   url:'https://app.notion.com/p/eedcea20cae182c6a77581abc2ad4b9d',link:'Read the practicum record',links:[['Explore the code','https://github.com/yumin-beep/ncp-3tier-architecture']]}
 ];
-export const startupProgram={id:'modoo',no:'2026',title:'Modoo Startup · First Cohort',station:'startup',activity:true,type:'Startup program · 2026',tools:'Prototype · Landing page · Business plan',image:'./assets/studio/modoo-startup-banner.png',status:'First-round selection · Final submission complete',
- description:'The program behind the SearchPrice prototype.',
- problem:'Take an ingredient-cost idea beyond a pitch and make it concrete enough to evaluate.',
- role:'I helped turn the SearchPrice idea into a focused prototype, a landing page, a business plan and activity reports.',
- result:'Selected in the first round of the 2026 Modoo Startup program; completed the final submission.',
- detail:'Original program banner. The SearchPrice tape contains the related product prototype.',
- url:'https://app.notion.com/p/3d2cea20cae181a390d1d1e2cd51d3f6',link:'Read the program record'};
+export const startupProgram={
+  "id": "modoo",
+  "no": "2026",
+  "title": "Modoo Startup · From Plan to Product",
+  "station": "startup",
+  "activity": true,
+  "type": "Startup programs · 2026",
+  "tools": "Business plan · Pitch research · Development",
+  "image": "./assets/studio/startup-2026/team.jpg",
+  "slides": [
+    "./assets/studio/startup-2026/team.jpg",
+    "./assets/studio/startup-2026/schedule.jpg",
+    "./assets/studio/startup-2026/theme.jpg",
+    "./assets/studio/startup-2026/festival.jpg"
+  ],
+  "status": "Second intake · University League Round 2 confirmed",
+  "description": "A game-studio venture centered on Debug Master, currently in prototype planning. My work spans business planning and pitch preparation, with development responsibilities assigned.",
+  "problem": "Turn a game-studio idea into a business plan and a pitch the team can present, while contributing as a developer.",
+  "role": "I wrote the business plan, researched and structured the pitch deck, and supported the team leader with pitch preparation and rehearsals. I am also assigned a development role; specific features and technologies have not been finalized. In the earlier Babsangmeori venture, I worked on the prototype, landing page, business plan and activity reports.",
+  "result": "이게제프 secured Round 2 advancement in the second intake of Modoo Startup’s University League. Separately, Babsangmeori was selected for Round 1 in the earlier intake, completed its submission, and did not advance to Round 2. Debug Master remains in prototype planning; implementation details and individual development deliverables are not yet confirmed.",
+  "detail": "University Startup Festival: team photo, presentation schedule, hackathon theme and opening event.",
+  "url": "https://app.notion.com/p/3e6cea20cae18185977ec259e0682295",
+  "link": "Read the university league record",
+  "links": [
+    [
+      "Read the Babsangmeori program record",
+      "https://app.notion.com/p/3d2cea20cae181a390d1d1e2cd51d3f6"
+    ]
+  ]
+};
 export const studioWorks=[...studioProjects,startupProgram,widget];
 export function studioStory(work){return work.id==='widget'?[
  ['The idea','A visual editor for composing and shaping desktop widgets.'],

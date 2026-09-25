@@ -1,6 +1,6 @@
 import {koCampus} from './ko-campus.js?v=c0790f7be8e2';
 import {koRoom} from './ko-room.js?v=1bca0d2221e5';
-import {koStudio} from './ko-studio.js?v=54171bfb585f';
+import {koStudio} from './ko-studio.js?v=b6056afd7a2f';
 
 const normalize=s=>String(s).replace(/\s+/g,' ').trim();
 const extras={

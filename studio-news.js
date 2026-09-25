@@ -1,6 +1,6 @@
 import * as THREE from './vendor/three.module.js';
-import {t as translate,localizeCanvas} from './i18n.js?v=551045c9749f';
-import {newsItems} from './news-data.js?v=d82bf9f04928';
+import {t as translate,localizeCanvas} from './i18n.js?v=fd19ee75af58';
+import {newsItems} from './news-data.js?v=e62fba6a7edc';
 
 const sections=[['front','Front page'],['certifications','Certifications'],['learning','Learning'],['honors','Honors'],['fieldwork','Fieldwork']];
 const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));

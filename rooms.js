@@ -1,12 +1,12 @@
 import * as THREE from './vendor/three.module.js';
-import {t as translate,localizeCanvas,languageButton,setLocalizedText} from './i18n.js?v=551045c9749f';
+import {t as translate,localizeCanvas,languageButton,setLocalizedText} from './i18n.js?v=fd19ee75af58';
 import {memories,whiteboardPhotos,artworks,cabinets} from './room-data.js?v=408d41d95851';
 import {mountArtworkMedia,hasArtworkMotion} from './art-media.js?v=a6f536d82bd4';
-import {studioWorks,studioStory,studioLinks} from './studio-data.js?v=1e02eecdf638';
-import {buildStudio,architectureHTML,pickTape,returnTape,tickStudio} from './studio.js?v=8d094a60c2f3';
+import {studioWorks,studioStory,studioLinks} from './studio-data.js?v=675c53e77f8d';
+import {buildStudio,architectureHTML,pickTape,returnTape,tickStudio} from './studio.js?v=c0808d6d5485';
 import {favoriteGames} from './favorite-games.js?v=0c87dde84cf3';
 import {televisionScreen,televisionLibrary} from './studio-tv.js?v=0cc13d2286f5';
-import {newspaperHTML,newspaperEdition,pickNewspaper,returnNewspaper} from './studio-news.js?v=8e46d3c5333a';
+import {newspaperHTML,newspaperEdition,pickNewspaper,returnNewspaper} from './studio-news.js?v=74d9a87b6f8c';
 const $=s=>document.querySelector(s);
 const INFO={studio:{name:'Builder’s Studio',en:'AFTER HOURS / AT HOME',hint:'Pick a project tape, read the newspaper, or turn on the TV.',bg:0x202f32},community:{name:'LEVEL0 Clubhouse',en:'THE CLUBHOUSE',hint:'Open a locker or click a photo on the whiteboard.',bg:0xd8dfc9},lab:{name:'AI x Works Gallery',en:'THE MAKING GALLERY',hint:'Hover over a frame to bring it to life. Tap to explore on mobile.',bg:0xe0dfd9},arcade:{name:'Game Arcade',en:'AFTER HOURS ARCADE',hint:'Pick a cabinet. Insert a coin. Discover a game.',bg:0x181a2b}};
 export class RoomController{

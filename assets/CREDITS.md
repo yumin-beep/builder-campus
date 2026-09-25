@@ -51,3 +51,6 @@ Official game artwork is displayed as part of Yumin’s personal favorites, sepa
 ## The Builder Post
 
 The newspaper uses original Three.js geometry, canvas typography and HTML/CSS. Career entries are drawn from Yumin Kang's [portfolio](https://app.notion.com/p/3d2cea20cae1813bba6bd6a084a4f183), [DANCE training record](https://app.notion.com/p/33fcea20cae18212a1838114ed6d1bc6), [On-Geul course record](https://app.notion.com/p/3d2cea20cae1819eaeccddb8da37f3d0) and [CloudSquare practicum record](https://app.notion.com/p/eedcea20cae182c6a77581abc2ad4b9d). Its photograph is the existing NCP prototype screenshot, not a certificate or award document. The user-supplied newspaper reference was used for art direction and is not redistributed.
+
+## University Startup Festival · 2026
+User-supplied photographs: IMG_9142.HEIC (team), IMG_9128.HEIC (presentation schedule), IMG_9127 2.HEIC (hackathon theme), IMG_9136.HEIC (opening event). Converted to web JPEGs; these are event records, not screenshots of Debug Master or proof of an award.
