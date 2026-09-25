@@ -236,5 +236,5 @@ export const koStudio = {
   "This is a separate venture from Babsangmeori, which was selected for Round 1 in the earlier intake but did not advance to Round 2.": "앞선 모집에서 1라운드 선정 후 2라운드에 진출하지 못한 밥상머리와는 별도의 창업 활동입니다.",
   "Team photo at the 2026 University Startup Festival.": "2026 대학창업 페스티벌 현장 팀 사진.",
   "Latest milestone · University League": "최근 활동 · 대학리그",
-  "이게제프 · Round 2 confirmed. Business planning, pitch preparation and development.": "이게제프 · 2라운드 진출 확정. 사업계획서, 피칭 준비와 개발을 담당했습니다."
+  "이게제프 · Round 2 confirmed. Business planning and pitch preparation; development role assigned, prototype in planning.": "이게제프 · 2라운드 진출 확정. 사업계획서·피칭 준비를 수행했으며, 개발 담당으로 참여 중입니다. 현재 프로토타입 기획 단계입니다."
 };

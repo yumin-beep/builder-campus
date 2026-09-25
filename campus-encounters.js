@@ -1,5 +1,5 @@
 import * as THREE from './vendor/three.module.js';
-import {languageButton,setLocalizedText} from './i18n.js?v=fd19ee75af58';
+import {languageButton,setLocalizedText} from './i18n.js?v=9b0067e6970b';
 import {makeCampusCast} from './campus-cast.js?v=5923599a2e7f';
 import {CampusSound} from './campus-sound.js?v=730d707576fa';
 
