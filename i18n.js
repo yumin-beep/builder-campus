@@ -1,5 +1,5 @@
 import {koCampus} from './ko-campus.js?v=c0790f7be8e2';
-import {koRoom} from './ko-room.js?v=1bca0d2221e5';
+import {koRoom} from './ko-room.js?v=ac15e9231fa1';
 import {koStudio} from './ko-studio.js?v=188f8ed4f221';
 
 const normalize=s=>String(s).replace(/\s+/g,' ').trim();

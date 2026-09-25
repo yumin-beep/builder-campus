@@ -1,4 +1,4 @@
-import {artworks} from './room-data.js?v=408d41d95851';
+import {artworks} from './room-data.js?v=213f48ccc11f';
 
 // The widget is the same case and media object in both rooms.
 const widget=artworks.find(work=>work.id==='widget');

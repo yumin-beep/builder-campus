@@ -1,5 +1,5 @@
 import * as THREE from './vendor/three.module.js';
-import {t as translate,localizeCanvas} from './i18n.js?v=9b0067e6970b';
+import {t as translate,localizeCanvas} from './i18n.js?v=2e590cf41e8e';
 import {newsItems} from './news-data.js?v=e62fba6a7edc';
 
 const sections=[['front','Front page'],['certifications','Certifications'],['learning','Learning'],['honors','Honors'],['fieldwork','Fieldwork']];

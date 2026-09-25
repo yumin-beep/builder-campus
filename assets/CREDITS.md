@@ -6,7 +6,7 @@
 - Daegu–Gyeongbuk regional game jam: https://app.notion.com/p/de8cea20cae1834ab16c818368f5fd15
 - Regional game jam participant and teamwork photos: Juyoung Park (@juyounginpark), https://www.instagram.com/juyounginpark/p/Db0hXoAILwp/
 - Job Battle: https://app.notion.com/p/3d2cea20cae18105862feebd1f39055c
-- AI Mafia: https://app.notion.com/p/3d2cea20cae181909eb7cb4058ef9894
+- Standoff: https://app.notion.com/p/3d2cea20cae181909eb7cb4058ef9894
 - Lucky Derby: https://app.notion.com/p/3d2cea20cae18192b372e5f59610121f
 - Cooking Genius: three original gameplay screenshots from https://app.notion.com/p/3d2cea20cae181e8903be4aef8327646
 - Desktop Widget Designer: two original editor screenshots from https://app.notion.com/p/3d2cea20cae1810f8122c2ce0f7a6638

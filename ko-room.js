@@ -83,7 +83,7 @@ export const koRoom = {
   "I defined the game rules and art direction, then iterated on implementation and debugging with Claude Code + Unity MCP. Inspecting the Animator on a character created at runtime helped us trace and fix recurring animation errors.": "게임 규칙과 아트 방향을 정한 뒤 Claude Code + Unity MCP와 함께 구현과 디버깅을 반복했습니다. 실행 중 생성된 캐릭터의 Animator를 살펴보며 반복되는 애니메이션 오류의 원인을 찾아 수정했습니다.",
   "The preview cycles through original Blender character animations: run, attack, defend and idle. In Unity play mode, I verified controller assignment, Idle playback and entry into Attack.": "미리보기에서는 Blender 캐릭터의 원본 달리기·공격·방어·대기 애니메이션을 차례로 보여 줍니다. Unity 플레이 모드에서는 컨트롤러 할당, Idle 재생, Attack 진입을 확인했습니다.",
   "Explore the code": "코드 살펴보기",
-  "AI Mafia": "AI 마피아",
+  "Standoff": "Standoff",
   "ONE HUMAN. FIVE AIs.": "사람 한 명, AI 다섯 명.",
   "Team project": "팀 프로젝트",
   "Unity · C# · Ollama · Gemma": "Unity · C# · Ollama · Gemma",
